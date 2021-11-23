@@ -12,6 +12,16 @@ body{
   width: 100vw;
   overflow-x: hidden;
 }
+.loading-bg{
+  background: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  transform: translate(0, 100%);
+  z-index: 100;
+}
 header{
   color: white;
   display: flex;
@@ -23,6 +33,10 @@ header{
 }
 header .logo{
   font-weight: 700;
+}
+header .logo a{
+  color: white;
+  text-decoration: none;
 }
 header .menu ul{
   display: flex;
@@ -166,4 +180,51 @@ header .menu li a{
   transform: translate3d(0px,500px, 0);
   border: 1px dashed white;
   clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
+
+/* gallery css */
+#gallery .content-area{
+  min-height: 100vh;
+}
+#gallery .white-bg{
+  background: white;
+  padding: 20px;
+  margin-bottom: 20%;
+}
+#gallery .white-bg h2{
+  font-size: 3rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+#gallery .white-bg ul{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  
+}
+#gallery .white-bg ul li{
+  justify-self: center;
+  align-self: center;
+  position: relative;
+  overflow: hidden;
+}
+#gallery .white-bg ul li .hover-bg{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 440px;
+  height: 300px;
+  background: rgba(0, 0, 0, 0.5);
+  transition: all .8s ease-in-out;
+  cursor: pointer;
+}
+#gallery .white-bg ul li:hover .hover-bg{
+  transform: translate(0, 100%);
+}
+#gallery .white-bg img{
+  width: 440px;
+  height: 300px;
+  object-fit: cover;
+  object-position: center;
+
 }
