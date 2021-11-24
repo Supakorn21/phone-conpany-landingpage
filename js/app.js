@@ -1,3 +1,5 @@
+//Page Transition Animations
+
 let indexEnter = () => {
 let tl = gsap.timeline()
 tl.fromTo('.logo',{
@@ -288,4 +290,29 @@ barba.init({
 });
 
 
+// Scroll Animation
 
+
+let tlServicesScroll = new gsap.timeline({
+    onUpdate: debugPercentage
+})
+function debugPercentage(){
+    console.log(tlServicesScroll.progress())
+}
+tlServicesScroll.fromTo('#main-services', {
+    x: '100%',
+}, {
+    x: 0
+})
+let serviceElement = document.querySelector('#main-services');
+
+let homeController = new ScrollMagic.Controller();
+
+let serviceScene = new ScrollMagic.Scene({
+    triggerElement: '#main-services',
+    triggerHook: 1,
+    duration: serviceElement.offsetHeight
+})
+.setTween(tlServicesScroll)
+.addIndicators()
+.addTo(homeController)
